@@ -1,0 +1,213 @@
+/* El lienzo conserva las posiciones del PowerPoint: 1920 × 1080. */
+@font-face{font-family:Ballpoint;src:url('assets/Ballpoint.otf') format('opentype');font-display:block}
+@font-face{font-family:'Aristotelica Pro';src:url('assets/Aristotelica.otf') format('opentype');font-display:block}
+:root{color-scheme:light;--tinta:#2a2b39}*{box-sizing:border-box}body{margin:0;background:#f1f1ef;color:var(--tinta);font-family:Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column}button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}button{cursor:pointer;font:inherit}a:focus-visible,button:focus-visible{outline:4px solid #16899a;outline-offset:5px}.skip{position:absolute;top:-60px;left:16px;z-index:9;background:white;padding:12px}.skip:focus{top:10px}main{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}#scroll-mapa{width:100%;overflow:auto}#marco{position:relative;margin:auto;overflow:hidden;background:#f7f7f7}#pantalla{width:1920px;height:1080px;position:absolute;top:0;left:0;transform-origin:top left;overflow:hidden}.fondo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;user-select:none}.bloque{position:absolute;display:flex;flex-direction:column;justify-content:flex-start}.parrafo{margin:0;padding:0;white-space:pre-wrap;overflow-wrap:normal;font-weight:normal;font-synthesis:none}.texto-link{color:inherit;text-decoration:none;cursor:pointer;background:transparent;border:0;padding:0;text-align:inherit;font:inherit;line-height:inherit;display:block;width:100%}.texto-link:hover{filter:brightness(.65);text-shadow:0 0 1px currentColor}.texto-link.original{text-decoration:underline;color:#00e}.vinculo-grafico{position:absolute;background:transparent;border:0;border-radius:4px}.vinculo-grafico:hover{background:#ffdc682b;outline:3px dashed #b38e00}.media{position:absolute;margin:0;padding:0;border:0;background:transparent}.media img{width:100%;height:100%;display:block;object-fit:fill}.media.photo:hover{outline:5px solid #ffda68;outline-offset:5px}.media video{display:block;width:100%;height:100%;object-fit:contain;background:transparent}.controles{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;flex-wrap:wrap;background:#fffef9;border-top:1px solid #dddcd5;font-size:12px;flex-shrink:0}.controles button{padding:8px 12px;color:var(--tinta);border:1px solid #d7d7cd;border-radius:4px;background:#fffef9;min-height:34px}.controles button:hover{background:#ffedac}.controles button:disabled{opacity:.35;cursor:default}#posicion{min-width:150px;text-align:center;font-size:11px}.separador{height:20px;border-left:1px solid #ddd;margin:0 6px}dialog{border:1px solid #ddd;max-width:94vw;max-height:94vh;padding:20px;background:#fafafa;color:var(--tinta)}dialog::backdrop{background:#171823dc}.visor-cabecera{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:16px}.visor-cabecera h2{font:normal 24px Ballpoint,sans-serif;margin:0}.visor-cabecera button{border:1px solid #b3ab84;background:#ffda68;padding:9px 14px;white-space:nowrap}.foto-ampliada{display:block;max-width:85vw;max-height:76vh;object-fit:contain}.aviso{max-width:500px;font-size:16px;line-height:1.7;padding:12px 0 20px}.aviso p{margin:0 0 10px}.aviso p:last-child{color:#747478;font-size:13px}@media(max-width:550px){.controles{gap:6px;padding:8px;font-size:11px}.controles button{padding:7px 9px}#posicion{min-width:125px}.separador{display:none}#completa{display:none}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+main:focus{outline:none}.original .parrafo{color:#00e!important}
+.photo{overflow:hidden}
+
+/* Flechas vectoriales completas: comparten escala y posición con el mapa. */
+.flechas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+
+/* Papel cuadriculado para las pantallas nuevas y como fondo de respaldo. */
+.pagina-contenido, .sin-fondo-original {
+  background-color: #f6f7f2;
+  background-image: linear-gradient(#cbd2c658 1px, transparent 1px), linear-gradient(90deg, #cbd2c658 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.institucion { margin: 0; font-size: 26px; line-height: 1.12; text-transform: uppercase; }
+.institucion strong { font-size: 34px; }
+.marca-alternativa, .icono-alternativo { display: none; }
+.sin-fondo-original .fondo { visibility: hidden; }
+.sin-fondo-original .marca-alternativa { display: block; position: absolute; top: 68px; left: 95px; }
+.sin-fondo-original .icono-alternativo { display: block; text-align: center; font-size: 29px; }
+.sin-fondo-original .marco-alternativo {
+  outline: 3px solid #2a2b39;
+  outline-offset: 5px;
+  background: #f1f3ed;
+  justify-content: center;
+}
+
+.pagina-contenido { width: 100%; height: 100%; padding: 62px 94px 56px; }
+.cabecera-contenido { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: start; }
+.precursora {
+  margin: 0;
+  font: 38px/1.07 Ballpoint, 'Arial Narrow', Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+.cabecera-contenido nav { display: flex; justify-content: flex-end; gap: 18px; }
+.cabecera-contenido a {
+  border: 2px solid currentColor;
+  color: #244b3b;
+  background: #f6f7f2;
+  padding: 13px 21px;
+  font-size: 25px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.cabecera-contenido a:hover { background: #e2eadf; }
+
+.pagina-contenido h1 {
+  margin: 44px 0 35px;
+  color: #264e3e;
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.columnas-proyectos { display: grid; grid-template-columns: 1.05fr 1fr; gap: 88px; }
+.grupo-proyectos { margin: 0 0 24px; }
+.grupo-proyectos h2 {
+  margin: 0 0 10px;
+  color: #264e3e;
+  font-size: 36px;
+  line-height: 1.15;
+}
+.grupo-proyectos ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 24px;
+  border-left: 2px solid #a0b2a5;
+}
+.grupo-proyectos li { padding: 3px 0; font-size: 29px; line-height: 1.24; }
+.grupo-proyectos li > ul { margin: 6px 0 0; }
+.grupo-proyectos li li li { font-size: 26px; }
+.detalle-item { margin-left: 14px; color: #4a6052; font-size: .84em; white-space: nowrap; }
+.acceso-evidencia {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 13px;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  text-decoration: none;
+  text-align: left;
+  font: inherit;
+  vertical-align: baseline;
+}
+.acceso-evidencia:hover { color: #1b6c46; text-decoration: underline; }
+.icono-evidencia {
+  display: inline-grid;
+  place-items: center;
+  width: 1.22em;
+  height: 1.22em;
+  flex: 0 0 auto;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  color: #2b6449;
+  font-size: .76em;
+  line-height: 1;
+}
+.comunidad {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  gap: 55px;
+  align-items: start;
+  margin-top: 70px;
+}
+.comunidad h1 { margin: 107px 0 0; max-width: 490px; font-size: 67px; line-height: 1.06; }
+.comunidad ol { margin: 0; padding-left: 70px; border-left: 3px solid #a0b2a5; }
+.comunidad li { margin: 0 0 15px; padding-left: 11px; font-size: 34px; line-height: 1.19; }
+.comunidad li::marker { color: #264e3e; font-weight: 700; font-size: .82em; }
+.comunidad .detalle-item { white-space: normal; }
+.media-ausente {
+  display: grid;
+  place-items: center;
+  background: #e8ebe4;
+  border: 2px dashed #9aa79c;
+  border-radius: 6px;
+  color: #354b40;
+  padding: 14px;
+  text-align: center;
+  font-size: 24px;
+}
+.sin-fondo-original .parrafo {
+  font-family: Arial, sans-serif !important;
+  font-size: var(--tamano-alternativo) !important;
+}
+
+/* Fotografías de las actividades: conservar la imagen completa. */
+.galeria-fotos{width:min(850px,80vw);display:grid;gap:24px}
+.galeria-fotos figure{margin:0;text-align:center}
+.galeria-fotos img{display:block;width:100%;max-height:70vh;object-fit:contain}
+.galeria-fotos figcaption{margin-top:8px;font-size:14px;color:#555}
+.comunidad li{margin-bottom:10px;font-size:29px}
+
+/* Continuidad del mapa: títulos manuscritos y recuadros sobre papel. */
+.pagina-proyectos { background-color: #f6f7f2; }
+.pagina-proyectos .precursora { font-size: 48px; color: var(--tinta); }
+.pagina-proyectos .cabecera-contenido a {
+  font: 36px/1 Ballpoint, sans-serif;
+  border: 0;
+  background: transparent;
+  color: var(--tinta);
+  text-decoration: underline;
+  padding: 8px 15px;
+}
+.continuidad-mapa { margin: 24px 0 0; text-align: center; font: 30px/1.1 'Aristotelica Pro', sans-serif; }
+.pagina-proyectos h1 {
+  margin: 12px 0 28px;
+  text-align: center;
+  font: 64px/1.05 Ballpoint, sans-serif;
+  letter-spacing: 0;
+  color: var(--tinta);
+}
+.pagina-proyectos .columnas-proyectos { gap: 48px; }
+.pagina-proyectos .grupo-proyectos {
+  margin-bottom: 18px;
+  padding: 14px 24px;
+  border: 2px solid #777c70;
+  border-radius: 9px 15px 8px 12px;
+  background: #f9faf4e8;
+}
+.pagina-proyectos .grupo-proyectos h2 {
+  font: 38px/1.05 Ballpoint, sans-serif;
+  color: var(--tinta);
+  margin-bottom: 10px;
+}
+.pagina-proyectos .grupo-proyectos li { font: 28px/1.13 'Aristotelica Pro', Arial, sans-serif; padding: 2px 0; }
+.pagina-proyectos .grupo-proyectos li li li { font-size: 25px; }
+.pagina-proyectos .grupo-proyectos ul { border-color: #a7ad9c; }
+.pagina-proyectos .detalle-item { color: #555b50; }
+
+.boton-inicio-cierre { background: #ffdf62; border: 3px solid #2a2b39; border-radius: 8px; justify-content: center; text-decoration: none !important; }
+.boton-inicio-cierre .parrafo { color: #2a2b39 !important; }
+
+.acciones-video { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: 720px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 22px; padding-top: 12px; font: 25px/1.2 Arial, sans-serif; }
+.acciones-video button { background: #ffdf62; border: 2px solid #2a2b39; border-radius: 6px; padding: 12px 22px; color: #2a2b39; font-weight: bold; }
+.acciones-video a { color: #244b3b; }
+.estado-video { flex-basis: 100%; text-align: center; font-size: 22px; }
+
+/* El mapa 2026 continúa el lienzo original, con sus mismas conexiones. */
+.mapa-proyectos { position: relative; width:1920px; height:1080px; color:#2a2b39; background-color:#f6f7f7; background-image:linear-gradient(#d7dcde38 1px,transparent 1px),linear-gradient(90deg,#d7dcde38 1px,transparent 1px); background-size:40px 40px; }
+.logo-mapa { position:absolute;left:40px;top:45px;width:500px;height:173px;object-fit:contain; }
+.mapa-proyectos h1 { position:absolute;left:590px;top:42px;width:720px;margin:0;text-align:center;font:64px/1.05 Ballpoint,sans-serif;text-transform:uppercase; }
+.boton-mapa { position:absolute;top:67px;width:240px;height:90px;display:grid;place-items:center;color:#00e;font:55px/1 Ballpoint,sans-serif;text-decoration:underline; }
+.boton-mapa svg { position:absolute;inset:0;width:100%;height:100%; }
+.boton-mapa span { position:relative; }
+.boton-mapa:hover { filter:brightness(.95); }
+.conexiones-proyectos { position:absolute;inset:0;width:100%;height:100%;pointer-events:none; }
+.conexiones-proyectos > path { fill:none;stroke:#2a2b39;stroke-width:3;stroke-linecap:round;marker-end:url(#punta-proyectos); }
+.nodo-proyecto { position:absolute;display:flex;align-items:center;justify-content:center;text-align:center;border:2.5px solid #2a2b39;border-radius:3px 7px 3px 5px;background:#f6f7f2;font:32px/1.07 'Aristotelica Pro',Arial,sans-serif;padding:5px 12px; }
+.nodo-titulo { font:40px/1.05 Ballpoint,sans-serif;text-transform:uppercase; }
+.nodo-proyecto .acceso-evidencia { align-items:center;justify-content:center;text-align:center; }
+.nodo-proyecto .detalle-item { display:block;white-space:normal;margin:4px 0 0;font-size:.78em;color:#454843; }
+.nodo-proyecto .icono-evidencia { flex-shrink:0;color:#2a2b39; }
+
+.nodo-proyecto.nodo-con-detalle { font-size:26px;line-height:1;padding:2px 12px; }
+.nodo-con-detalle .detalle-item { margin-top:3px;font-size:.8em;line-height:1; }
+
+/* Comunidad comparte el encabezado y los recuadros del mapa. */
+.actividades-comunidad { position:absolute;left:70px;right:70px;top:245px;height:770px;margin:0;padding:0;list-style:none;display:grid;grid-auto-flow:column;grid-template-rows:repeat(6,1fr);grid-template-columns:1fr 1fr;gap:14px 60px; }
+.actividad-comunidad { display:flex;align-items:center;gap:20px;padding:12px 20px;border:2.5px solid #2a2b39;border-radius:3px 7px 3px 5px;background:#f6f7f2;font:32px/1.08 'Aristotelica Pro',Arial,sans-serif;min-width:0; }
+.numero-actividad { flex:0 0 42px;color:#2a2b39;font:42px/1 Ballpoint,sans-serif;text-align:center; }
+.actividad-comunidad .acceso-evidencia { align-items:center;width:100%;justify-content:space-between; }
+.actividad-comunidad .detalle-item { display:block;white-space:normal;margin:6px 0 0;font-size:24px;line-height:1.05;color:#454843; }
+.actividad-comunidad .icono-evidencia { color:#2a2b39;flex-shrink:0; }
+.actividad-comunidad:has(a):hover, .actividad-comunidad:has(button):hover { background:#fff3bb; }
+
+.media-patronal .acciones-video { width: 100%; font-size: 23px; gap: 10px; }
+
+.indicador-galeria { position:absolute; right:-35px; top:18px; font:30px/1 Arial,sans-serif; color:#2a2b39; }

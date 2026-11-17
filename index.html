@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mapa interactivo de Primaria del Instituto Parroquial Santo Cristo.">
+  <title>Mapa interactivo · Santo Cristo</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script defer src="contenido.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#mapa">Ir al mapa</a>
+  <main id="mapa" tabindex="-1" aria-label="Mapa interactivo de Primaria">
+    <div id="scroll-mapa"><div id="marco"><section id="pantalla" aria-label="Pantalla del mapa"></section></div></div>
+  </main>
+  <nav class="controles" aria-label="Controles del mapa">
+    <button id="inicio" title="Volver al inicio">Inicio</button>
+    <button id="anterior" aria-label="Pantalla anterior">←</button>
+    <span id="posicion" aria-live="polite"></span>
+    <button id="siguiente" aria-label="Pantalla siguiente">→</button>
+    <span class="separador"></span>
+    <button id="ampliar" aria-pressed="false">Ampliar mapa</button>
+    <button id="completa">Pantalla completa</button>
+  </nav>
+  <dialog id="visor" aria-labelledby="visor-titulo">
+    <div class="visor-cabecera"><h2 id="visor-titulo"></h2><button id="cerrar" aria-label="Cerrar">Cerrar ×</button></div>
+    <div id="visor-contenido"></div>
+  </dialog>
+  <noscript>Activá JavaScript para navegar por el mapa.</noscript>
+</body>
+</html>

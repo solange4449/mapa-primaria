@@ -1,0 +1,6 @@
+.agents/
+.aws/
+.codex/
+_site/
+.DS_Store
+Thumbs.db
