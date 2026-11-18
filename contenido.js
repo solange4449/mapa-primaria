@@ -109,8 +109,6 @@ window.MAPA = {
         },
         {
           "id": "texto-29",
-          "photos": ["assets/WhatsApp Image 2026-11-16 at 20.21.35.jpeg", "assets/diploma-reconocimiento.svg"],
-          "galleryTitle": "Reconocimiento · Escuela Precursora",
           "x": 734.214,
           "y": 58.95,
           "w": 678.772,
@@ -835,6 +833,14 @@ window.MAPA = {
                 "evidence": true,
                 "detail": "Santo Cristo"
               }
+            ]
+          },
+          {
+            "title": "Reconocimiento como Escuela Precursora",
+            "items": [],
+            "photos": [
+              "assets/WhatsApp Image 2026-11-16 at 20.21.35.jpeg",
+              "assets/diploma-reconocimiento.svg"
             ]
           },
           {

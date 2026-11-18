@@ -53,10 +53,11 @@ function mapaProyectos(slide) {
   const convivencia=proyectos.children[1];
   const pastoral=grupo('Definición institucional').items[0];
   const jornada=grupo('Jornada Escuela, Familia y Comunidad');
+  const reconocimiento=grupo('Reconocimiento como Escuela Precursora');
   const acompanamiento=grupo('Acompañamiento en expedición pedagógica');
   const evaluaciones=grupo('Evaluaciones');
-  const nodo=(item,x,y,w,h,clase='')=>`<div class="nodo-proyecto ${clase} ${item.detail ? 'nodo-con-detalle' : ''}" style="${caja({x,y,w,h})}">${rotulo(item)}</div>`;
-  const titulo=(text,x,y,w,h)=>nodo({text},x,y,w,h,'nodo-titulo');
+  const nodo=(item,x,y,w,h,clase='',color='celeste')=>`<div class="nodo-proyecto pastel-${color} ${clase} ${item.detail ? 'nodo-con-detalle' : ''}" style="${caja({x,y,w,h})}">${rotulo(item)}</div>`;
+  const titulo=(text,x,y,w,h,color='celeste')=>nodo({text},x,y,w,h,'nodo-titulo',color);
   const flecha=d=>`<path d="${d}"/>`;
 
   return `<div class="mapa-proyectos">
@@ -66,23 +67,24 @@ function mapaProyectos(slide) {
     <svg class="conexiones-proyectos" viewBox="0 0 1920 1080" aria-hidden="true"><defs><marker id="punta-proyectos" viewBox="0 0 14 12" refX="12" refY="6" markerWidth="14" markerHeight="12" orient="auto-start-reverse"><path d="M1 1 L12 6 L1 11" fill="none" stroke="#2a2b39" stroke-width="2"/></marker></defs>
       ${['M370 280 Q405 265 435 280','M665 280 Q710 218 755 225','M665 280 Q712 350 755 355','M1115 225 Q1170 195 1225 210','M1115 225 Q1170 255 1225 270','M1115 355 Q1170 330 1225 340','M1115 355 Q1170 390 1225 400','M370 550 Q405 535 435 550','M675 550 Q730 480 775 470','M675 550 Q730 535 775 535','M675 550 L775 600','M675 550 Q725 650 775 665','M675 550 Q730 710 775 730','M1060 835 Q1130 795 1190 800','M1060 835 Q1130 875 1190 875','M1060 995 Q1130 960 1190 955','M1060 995 Q1130 1025 1190 1020'].map(flecha).join('')}
     </svg>
-    ${titulo(formacion.title,60,235,310,90)}
-    ${titulo(proyectos.text,435,235,230,90)}
+    ${titulo(formacion.title,60,235,310,90,'lavanda')}
+    ${titulo(proyectos.text,435,235,230,90,'lavanda')}
     ${nodo(alfabetizacion,755,185,360,85)}
     ${nodo(alfabetizacion.children[0],1225,180,585,60)}
     ${nodo(alfabetizacion.children[1],1225,245,585,55)}
-    ${nodo(convivencia,755,315,360,80)}
-    ${nodo(convivencia.children[0],1225,315,585,55)}
-    ${nodo(convivencia.children[1],1225,380,585,55)}
-    ${titulo('Definición institucional',60,505,310,90)}
-    ${titulo(pastoral.text,435,505,240,90)}
-    ${pastoral.children.map((item,i)=>nodo(item,775,445+i*65,1035,55)).join('')}
-    ${titulo('Articulación con Nivel Inicial',60,770,440,90)}
-    ${nodo({text:jornada.title,photos:jornada.photos},60,925,440,100)}
-    ${titulo(acompanamiento.title,600,785,460,100)}
-    ${acompanamiento.items.map((item,i)=>nodo(item,1190,770+i*75,620,60)).join('')}
-    ${titulo(evaluaciones.title,600,950,460,90)}
-    ${evaluaciones.items.map((item,i)=>nodo({...item, detail:[item.detail,...(item.children||[]).map(c=>c.text+' · '+c.detail)].filter(Boolean).join(' · ')},1190,925+i*65,620,60)).join('')}
+    ${nodo(convivencia,755,315,360,80,'','verde')}
+    ${nodo(convivencia.children[0],1225,315,585,55,'','verde')}
+    ${nodo(convivencia.children[1],1225,380,585,55,'','verde')}
+    ${titulo('Definición institucional',60,505,310,90,'rosa')}
+    ${titulo(pastoral.text,435,505,240,90,'rosa')}
+    ${pastoral.children.map((item,i)=>nodo(item,775,445+i*65,1035,55,'','rosa')).join('')}
+    ${titulo('Articulación con Nivel Inicial',60,770,440,70,'lavanda')}
+    ${nodo({text:jornada.title,photos:jornada.photos},60,855,440,75,'','verde')}
+    ${nodo({text:reconocimiento.title,photos:reconocimiento.photos},60,945,440,80,'','amarillo')}
+    ${titulo(acompanamiento.title,600,785,460,100,'amarillo')}
+    ${acompanamiento.items.map((item,i)=>nodo(item,1190,770+i*75,620,60,'','amarillo')).join('')}
+    ${titulo(evaluaciones.title,600,950,460,90,'lavanda')}
+    ${evaluaciones.items.map((item,i)=>nodo({...item, detail:[item.detail,...(item.children||[]).map(c=>c.text+' · '+c.detail)].filter(Boolean).join(' · ')},1190,925+i*65,620,60,'','lavanda')).join('')}
   </div>`;
 }
 

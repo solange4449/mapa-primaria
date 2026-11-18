@@ -190,7 +190,14 @@ main:focus{outline:none}.original .parrafo{color:#00e!important}
 .boton-mapa:hover { filter:brightness(.95); }
 .conexiones-proyectos { position:absolute;inset:0;width:100%;height:100%;pointer-events:none; }
 .conexiones-proyectos > path { fill:none;stroke:#2a2b39;stroke-width:3;stroke-linecap:round;marker-end:url(#punta-proyectos); }
-.nodo-proyecto { position:absolute;display:flex;align-items:center;justify-content:center;text-align:center;border:2.5px solid #2a2b39;border-radius:3px 7px 3px 5px;background:#f6f7f2;font:32px/1.07 'Aristotelica Pro',Arial,sans-serif;padding:5px 12px; }
+.nodo-proyecto { position:absolute;display:flex;align-items:center;justify-content:center;text-align:center;border:2.5px solid #2a2b39;border-radius:3px 7px 3px 5px;background:var(--color-recuadro,#c7ebee);font:32px/1.07 'Aristotelica Pro',Arial,sans-serif;padding:5px 12px; }
+/* Paleta pastel inspirada en los recuadros de las primeras pantallas. */
+.pastel-celeste { --color-recuadro:#c7ebee; }
+.pastel-lavanda { --color-recuadro:#e8defc; }
+.pastel-rosa { --color-recuadro:#ffd2d2; }
+.pastel-verde { --color-recuadro:#e0f0cb; }
+.pastel-amarillo { --color-recuadro:#ffebad; }
+.nodo-proyecto:has(.acceso-evidencia):hover { filter:brightness(.96); }
 .nodo-titulo { font:40px/1.05 Ballpoint,sans-serif;text-transform:uppercase; }
 .nodo-proyecto .acceso-evidencia { align-items:center;justify-content:center;text-align:center; }
 .nodo-proyecto .detalle-item { display:block;white-space:normal;margin:4px 0 0;font-size:.78em;color:#454843; }
@@ -201,12 +208,17 @@ main:focus{outline:none}.original .parrafo{color:#00e!important}
 
 /* Comunidad comparte el encabezado y los recuadros del mapa. */
 .actividades-comunidad { position:absolute;left:70px;right:70px;top:245px;height:770px;margin:0;padding:0;list-style:none;display:grid;grid-auto-flow:column;grid-template-rows:repeat(6,1fr);grid-template-columns:1fr 1fr;gap:14px 60px; }
-.actividad-comunidad { display:flex;align-items:center;gap:20px;padding:12px 20px;border:2.5px solid #2a2b39;border-radius:3px 7px 3px 5px;background:#f6f7f2;font:32px/1.08 'Aristotelica Pro',Arial,sans-serif;min-width:0; }
+.actividad-comunidad { display:flex;align-items:center;gap:20px;padding:12px 20px;border:2.5px solid #2a2b39;border-radius:3px 7px 3px 5px;background:var(--color-recuadro,#c7ebee);font:32px/1.08 'Aristotelica Pro',Arial,sans-serif;min-width:0; }
+.actividad-comunidad:nth-child(5n+1) { --color-recuadro:#c7ebee; }
+.actividad-comunidad:nth-child(5n+2) { --color-recuadro:#e8defc; }
+.actividad-comunidad:nth-child(5n+3) { --color-recuadro:#ffd2d2; }
+.actividad-comunidad:nth-child(5n+4) { --color-recuadro:#e0f0cb; }
+.actividad-comunidad:nth-child(5n+5) { --color-recuadro:#ffebad; }
 .numero-actividad { flex:0 0 42px;color:#2a2b39;font:42px/1 Ballpoint,sans-serif;text-align:center; }
 .actividad-comunidad .acceso-evidencia { align-items:center;width:100%;justify-content:space-between; }
 .actividad-comunidad .detalle-item { display:block;white-space:normal;margin:6px 0 0;font-size:24px;line-height:1.05;color:#454843; }
 .actividad-comunidad .icono-evidencia { color:#2a2b39;flex-shrink:0; }
-.actividad-comunidad:has(a):hover, .actividad-comunidad:has(button):hover { background:#fff3bb; }
+.actividad-comunidad:has(a):hover, .actividad-comunidad:has(button):hover { filter:brightness(.96); }
 
 .media-patronal .acciones-video { width: 100%; font-size: 23px; gap: 10px; }
 
