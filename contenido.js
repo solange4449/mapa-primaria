@@ -945,7 +945,7 @@ window.MAPA = {
       "section": "Logros 2026",
       "previous": 3,
       "next": 17,
-      "presentationImage": "assets/logros-metas/diapositiva-1.svg"
+      "presentationImage": "assets/logros-metas/diapositiva-original-1.png"
     },
     {
       "id": 17,
@@ -953,7 +953,7 @@ window.MAPA = {
       "section": "Metas 2027",
       "previous": 16,
       "next": 4,
-      "presentationImage": "assets/logros-metas/diapositiva-2.svg"
+      "presentationImage": "assets/logros-metas/diapositiva-original-2.png"
     },
     {
       "id": 4,
