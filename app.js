@@ -79,8 +79,8 @@ function mapaProyectos(slide) {
     ${titulo(pastoral.text,435,505,240,90,'rosa')}
     ${pastoral.children.map((item,i)=>nodo(item,775,445+i*65,1035,55,'','rosa')).join('')}
     ${titulo('Articulación con Nivel Inicial',60,770,440,70,'lavanda')}
-    ${nodo({text:jornada.title,photos:jornada.photos},60,855,440,75,'','verde')}
-    ${nodo({text:reconocimiento.title,photos:reconocimiento.photos},60,945,440,80,'','amarillo')}
+    ${nodo({text:jornada.title,photos:jornada.photos},60,850,440,95,'nodo-titulo','verde')}
+    ${nodo({text:reconocimiento.title,photos:reconocimiento.photos},60,960,440,100,'nodo-titulo','amarillo')}
     ${titulo(acompanamiento.title,600,785,460,100,'amarillo')}
     ${acompanamiento.items.map((item,i)=>nodo(item,1190,770+i*75,620,60,'','amarillo')).join('')}
     ${titulo(evaluaciones.title,600,950,460,90,'lavanda')}
@@ -128,7 +128,7 @@ function mostrar(numero, enfocar=true) {
       const style=caja(t);
       const clase=t.fallbackFrame ? 'bloque marco-alternativo' : 'bloque';
       if(target) return `<a class="${clase} ${t.id==='volver-inicio' ? 'boton-inicio-cierre' : ''} texto-link ${t.navigation?'original':''}" style="${style}" href="#pantalla/${target}">${parrafos}</a>`;
-      if(t.photos?.length) return `<button class="${clase} texto-link" style="${style}" data-galeria="${e(t.photos.join('|'))}" data-titulo="${e(t.galleryTitle)}" aria-label="Ver fotos del reconocimiento de Escuela Precursora" title="Ver fotos del reconocimiento">${parrafos}<span class="indicador-galeria" aria-hidden="true">▷</span></button>`;
+      if(t.photos?.length) return `<button class="${clase} texto-link" style="${style}" data-galeria="${e(t.photos.join('|'))}" data-titulo="${e(t.galleryTitle)}" aria-label="Ver fotos: ${e(t.galleryTitle)}" title="Ver fotos: ${e(t.galleryTitle)}">${parrafos}<svg class="indicador-galeria" viewBox="948.815 494.577 47.27 41.597" aria-hidden="true"><image href="assets/fondos/pantalla-02.svg" width="1920" height="1080"/></svg></button>`;
       if(t.evidenceTitle) return `<button class="${clase} texto-link" style="${style}" data-evidencia="${e(t.evidenceTitle)}">${parrafos}</button>`;
       if(pending)return `<button class="${clase} texto-link" style="${style}" data-pendiente="${e(t.paragraphs.map(p=>p.text).join(' '))}">${parrafos}</button>`;
       return `<div class="${clase}" style="${style}">${parrafos}</div>`;

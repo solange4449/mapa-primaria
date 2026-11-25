@@ -536,6 +536,13 @@ window.MAPA = {
         },
         {
           "id": "texto-53",
+          "galleryTitle": "Muestra institucional interdisciplinaria",
+          "photos": [
+            "assets/muestra-institucional-2026-01.jpeg",
+            "assets/muestra-institucional-2026-02.jpeg",
+            "assets/muestra-institucional-2026-03.jpeg",
+            "assets/muestra-institucional-2026-04.jpeg"
+],
           "x": 1223.498,
           "y": 696.267,
           "w": 431.403,
