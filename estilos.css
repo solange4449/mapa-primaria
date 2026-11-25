@@ -172,7 +172,7 @@ main:focus{outline:none}.original .parrafo{color:#00e!important}
 .pagina-proyectos .grupo-proyectos ul { border-color: #a7ad9c; }
 .pagina-proyectos .detalle-item { color: #555b50; }
 
-.boton-inicio-cierre { background: #ffdf62; border: 3px solid #2a2b39; border-radius: 8px; justify-content: center; text-decoration: none !important; }
+.boton-inicio-cierre { display: flex; align-items: center; background: #ffdf62; border: 3px solid #2a2b39; border-radius: 8px; justify-content: center; text-decoration: none !important; }
 .boton-inicio-cierre .parrafo { color: #2a2b39 !important; }
 
 .acciones-video { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: 720px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 22px; padding-top: 12px; font: 25px/1.2 Arial, sans-serif; }
