@@ -30,6 +30,7 @@ jobs:
           mkdir -p _site
           cp index.html app.js contenido.js estilos.css _site/
           cp -R assets _site/assets
+          sed -i "s|estilos.css|estilos.css?v=${GITHUB_SHA}|g; s|contenido.js|contenido.js?v=${GITHUB_SHA}|g; s|app.js|app.js?v=${GITHUB_SHA}|g" _site/index.html
           touch _site/.nojekyll
       - name: Subir el sitio
         uses: actions/upload-pages-artifact@v3
