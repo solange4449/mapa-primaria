@@ -89,6 +89,7 @@ function mapaProyectos(slide) {
 }
 
 function pantallaDeContenido(slide) {
+  if (slide.presentationImage) return `<div class="presentacion-institucional"><img src="${e(slide.presentationImage)}" alt="${e(slide.title)}"><nav aria-label="Navegación de la presentación"><a href="#pantalla/${slide.previous}">← Volver</a><a href="assets/Logros y metas Santo Cristo.pptx" download>Descargar presentación</a><a href="#pantalla/${slide.next}">Siguiente →</a></nav></div>`;
   if (slide.columns) return mapaProyectos(slide);
   return `<div class="mapa-proyectos mapa-comunidad">
     <img class="logo-mapa" src="assets/image6.png" alt="Instituto Parroquial Santo Cristo">

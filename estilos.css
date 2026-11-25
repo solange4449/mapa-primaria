@@ -224,3 +224,8 @@ main:focus{outline:none}.original .parrafo{color:#00e!important}
 .media-patronal .acciones-video { width: 100%; font-size: 23px; gap: 10px; }
 
 .indicador-galeria { position:absolute; right:-55px; top:18px; width:47.27px; height:41.597px; }
+
+.presentacion-institucional { width:1920px;height:1080px;background:#f7f6ef; }
+.presentacion-institucional > img { display:block;width:1766px;height:993.375px;margin:0 auto;object-fit:contain; }
+.presentacion-institucional nav { height:86px;display:flex;align-items:center;justify-content:space-between;padding:0 80px;font:30px/1.2 Arial,sans-serif; }
+.presentacion-institucional nav a { color:#1d3e4f;text-decoration:underline;padding:12px; }

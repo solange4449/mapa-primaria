@@ -542,7 +542,7 @@ window.MAPA = {
             "assets/muestra-institucional-2026-02.jpeg",
             "assets/muestra-institucional-2026-03.jpeg",
             "assets/muestra-institucional-2026-04.jpeg"
-],
+          ],
           "x": 1223.498,
           "y": 696.267,
           "w": 431.403,
@@ -876,7 +876,7 @@ window.MAPA = {
       "title": "Actividades con y para la comunidad",
       "section": "Comunidad",
       "previous": 12,
-      "next": 4,
+      "next": 16,
       "activities": [
         {
           "text": "Formación de la Unión de Familias",
@@ -938,6 +938,22 @@ window.MAPA = {
           "text": "Merendero con la colaboración de estudiantes de 6.º grado"
         }
       ]
+    },
+    {
+      "id": 16,
+      "title": "Logros institucionales 2026",
+      "section": "Logros 2026",
+      "previous": 3,
+      "next": 17,
+      "presentationImage": "assets/logros-metas/diapositiva-1.svg"
+    },
+    {
+      "id": 17,
+      "title": "Metas institucionales 2027",
+      "section": "Metas 2027",
+      "previous": 16,
+      "next": 4,
+      "presentationImage": "assets/logros-metas/diapositiva-2.svg"
     },
     {
       "id": 4,
