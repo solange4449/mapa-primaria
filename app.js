@@ -89,7 +89,7 @@ function mapaProyectos(slide) {
 }
 
 function pantallaDeContenido(slide) {
-  if (slide.presentationImage) return `<div class="presentacion-institucional"><img src="${e(slide.presentationImage)}" alt="${e(slide.title)}"><nav aria-label="Navegación de la presentación"><a href="#pantalla/${slide.previous}">← Volver</a><a href="assets/Logros y metas Santo Cristo.pptx" download>Descargar presentación</a><a href="#pantalla/${slide.next}">Siguiente →</a></nav></div>`;
+  if (slide.presentationImage) return `<div class="presentacion-institucional"><div class="diapositiva-presentacion"><img src="${e(slide.presentationImage)}" alt="${e(slide.title)}">${(slide.presentationGalleries || []).map(g => `<button class="enlace-fotos-presentacion" style="left:${g.x / 19.2}%;top:${g.y / 10.8}%;width:${g.w / 19.2}%;height:${g.h / 10.8}%" data-galeria="${e(g.photos.join('|'))}" data-titulo="${e(g.title)}" aria-label="Ver fotografías: ${e(g.title)}" title="Ver fotografías: ${e(g.title)}"></button>`).join('')}</div><nav aria-label="Navegación de la presentación"><a href="#pantalla/${slide.previous}">← Volver</a><a href="assets/Logros y metas Santo Cristo.pptx" download>Descargar presentación</a><a href="#pantalla/${slide.next}">Siguiente →</a></nav></div>`;
   if (slide.columns) return mapaProyectos(slide);
   return `<div class="mapa-proyectos mapa-comunidad">
     <img class="logo-mapa" src="assets/image6.png" alt="Instituto Parroquial Santo Cristo">

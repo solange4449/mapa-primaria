@@ -945,7 +945,43 @@ window.MAPA = {
       "section": "Logros 2026",
       "previous": 3,
       "next": 17,
-      "presentationImage": "assets/logros-metas/diapositiva-original-1.png"
+      "presentationImage": "assets/logros-metas/diapositiva-original-1.png",
+      "presentationGalleries": [
+        {
+          "title": "Tutorías",
+          "photos": [
+            "assets/image24.jpeg",
+            "assets/image25.jpeg"
+          ],
+          "x": 123,
+          "y": 785,
+          "w": 485,
+          "h": 113
+        },
+        {
+          "title": "Alfabetización",
+          "photos": [
+            "assets/image26.jpeg"
+          ],
+          "x": 716,
+          "y": 785,
+          "w": 485,
+          "h": 113
+        },
+        {
+          "title": "Muestra institucional interdisciplinaria",
+          "photos": [
+            "assets/muestra-institucional-2026-01.jpeg",
+            "assets/muestra-institucional-2026-02.jpeg",
+            "assets/muestra-institucional-2026-03.jpeg",
+            "assets/muestra-institucional-2026-04.jpeg"
+          ],
+          "x": 1309,
+          "y": 785,
+          "w": 485,
+          "h": 113
+        }
+      ]
     },
     {
       "id": 17,
